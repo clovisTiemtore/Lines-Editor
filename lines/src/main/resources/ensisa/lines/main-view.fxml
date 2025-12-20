@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ensisa.lines.MainController">
+
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu text="Fichier">
+                    <items>
+                        <MenuItem text="Quitter" onAction="#quitMenuAction"/>
+                    </items>
+                </Menu>
+
+                <Menu text="Edition">
+                    <items>
+                        <MenuItem text="Dessiner" onAction="#selectDrawTool"/>
+                        <MenuItem text="Sélectionner" onAction="#selectSelectTool"/>
+                    </items>
+                </Menu>
+
+                <Menu text="Outils">
+                    <items>
+                        <MenuItem text="Dessiner" onAction="#selectDrawTool"/>
+                        <MenuItem text="Sélectionner" onAction="#selectSelectTool"/>
+                        <MenuItem fx:id="deleteMenuItem" text="Supprimer" onAction="#deleteMenuItemAction"/>
+                    </items>
+                </Menu>
+
+                <Menu text="Annuler">
+                    <items>
+                        <MenuItem fx:id="undoMenuItem" text="Annuler" onAction="#undoMenuItemAction"/>
+                    </items>
+                </Menu>
+
+                <Menu text="Rétablir">
+                    <items>
+                        <MenuItem fx:id="redoMenuItem" text="Rétablir" onAction="#redoMenuItemAction"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+
+    <left>
+        <VBox spacing="10" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Button text="Sélection" onAction="#selectSelectTool"/>
+            <Button text="Dessin" onAction="#selectDrawTool"/>
+            <Button text="Suppression" onAction="#selectDeleteTool"/>
+        </VBox>
+    </left>
+
+    <center>
+        <Pane fx:id="editorPane"
+              style="-fx-background-color: white;"
+              onMousePressed="#mousePressedInEditor"
+              onMouseDragged="#mouseDraggedInEditor"
+              onMouseReleased="#mouseReleasedInEditor"
+        />
+    </center>
+
+    <right>
+        <GridPane hgap="5" vgap="5">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Épaisseur de ligne" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="lineWidthTextField"
+                       onAction="#lineWidthTextFieldAction"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Couleur" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <ColorPicker fx:id="colorPicker"
+                         onAction="#colorPickerAction"
+                         GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Pane GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2"
+                  VBox.vgrow="ALWAYS"/>
+        </GridPane>
+    </right>
+
+</BorderPane>

@@ -3,6 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 
 <BorderPane prefHeight="600.0" prefWidth="800.0"
             xmlns="http://javafx.com/javafx/25"
@@ -54,9 +56,31 @@
                 <Insets top="10" right="10" bottom="10" left="10"/>
             </padding>
 
-            <Button text="Sélection" onAction="#selectSelectTool"/>
-            <Button text="Dessin" onAction="#selectDrawTool"/>
+            <!-- Bouton Sélection avec icône -->
+            <Button onAction="#selectSelectTool">
+                <graphic>
+                    <ImageView fitWidth="24" fitHeight="24" preserveRatio="true">
+                        <image>
+                            <Image url="@icons/cursorarrow.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <!-- Bouton Dessin avec icône -->
+            <Button onAction="#selectDrawTool">
+                <graphic>
+                    <ImageView fitWidth="24" fitHeight="24" preserveRatio="true">
+                        <image>
+                            <Image url="@icons/pencil.line.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <!-- Bouton Suppression (pas d’icône pour l’instant) -->
             <Button text="Suppression" onAction="#selectDeleteTool"/>
+
         </VBox>
     </left>
 

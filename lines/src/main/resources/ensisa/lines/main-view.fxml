@@ -56,7 +56,6 @@
                 <Insets top="10" right="10" bottom="10" left="10"/>
             </padding>
 
-            <!-- Bouton Sélection avec icône -->
             <Button onAction="#selectSelectTool">
                 <graphic>
                     <ImageView fitWidth="24" fitHeight="24" preserveRatio="true">
@@ -67,7 +66,6 @@
                 </graphic>
             </Button>
 
-            <!-- Bouton Dessin avec icône -->
             <Button onAction="#selectDrawTool">
                 <graphic>
                     <ImageView fitWidth="24" fitHeight="24" preserveRatio="true">
@@ -78,7 +76,6 @@
                 </graphic>
             </Button>
 
-            <!-- Bouton Suppression (pas d’icône pour l’instant) -->
             <Button text="Suppression" onAction="#selectDeleteTool"/>
 
         </VBox>
